@@ -1,0 +1,89 @@
+.shell powershell
+
+# Reload whkd
+alt + shift + r : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
+
+# Reload komorebi config
+alt + shift + c : komorebic reload-configuration
+
+# ---- WINDOW MANAGEMENT ----------------------------------------------------------
+
+# Close focused window
+alt + q : komorebic close
+
+# Toggle float
+alt + shift + space : komorebic toggle-float
+
+# Toggle monocle (fullscreen within workspace)
+alt + f : komorebic toggle-monocle
+
+# Toggle maximize
+alt + m : komorebic toggle-maximize
+
+# Toggle tiling direction
+alt + t : komorebic flip-layout horizontal
+
+# Retile (fix layout)
+alt + shift + t : komorebic retile
+
+# ---- FOCUS — Alt + Arrow keys ---------------------------------------------------
+
+alt + left  : komorebic focus left
+alt + right : komorebic focus right
+alt + up    : komorebic focus up
+alt + down  : komorebic focus down
+
+# ---- RESIZE — Alt + Ctrl + Arrow keys -------------------------------------------
+
+alt + ctrl + right : komorebic resize-axis horizontal increase
+alt + ctrl + left  : komorebic resize-axis horizontal decrease
+alt + ctrl + up    : komorebic resize-axis vertical decrease
+alt + ctrl + down  : komorebic resize-axis vertical increase
+
+# ---- MOVE WINDOW — Alt + Shift + Arrow keys -------------------------------------
+
+alt + shift + left  : komorebic move left
+alt + shift + right : komorebic move right
+alt + shift + up    : komorebic move up
+alt + shift + down  : komorebic move down
+
+# ---- WORKSPACE SWITCHING — Alt + [1–0] ------------------------------------------
+
+# Note: komorebi workspaces are 0-indexed internally
+alt + 1 : komorebic focus-workspace 0
+alt + 2 : komorebic focus-workspace 1
+alt + 3 : komorebic focus-workspace 2
+alt + 4 : komorebic focus-workspace 3
+alt + 5 : komorebic focus-workspace 4
+alt + 6 : komorebic focus-workspace 5
+alt + 7 : komorebic focus-workspace 6
+alt + 8 : komorebic focus-workspace 7
+alt + 9 : komorebic focus-workspace 8
+alt + 0 : komorebic focus-workspace 9
+
+# ---- MOVE TO WORKSPACE — Alt + Shift + [1–0] ------------------------------------
+
+alt + shift + 1 : komorebic move-to-workspace 0
+alt + shift + 2 : komorebic move-to-workspace 1
+alt + shift + 3 : komorebic move-to-workspace 2
+alt + shift + 4 : komorebic move-to-workspace 3
+alt + shift + 5 : komorebic move-to-workspace 4
+alt + shift + 6 : komorebic move-to-workspace 5
+alt + shift + 7 : komorebic move-to-workspace 6
+alt + shift + 8 : komorebic move-to-workspace 7
+alt + shift + 9 : komorebic move-to-workspace 8
+alt + shift + 0 : komorebic move-to-workspace 9
+
+# ---- LAUNCHERS ------------------------------------------------------------------
+
+# Terminal — cmd
+ctrl + alt + t : start cmd
+
+# PowerToys Run — trigger its own shortcut or remap here
+alt + r : komorebic toggle-pause; Start-Process powertoys; komorebic toggle-pause
+
+# Screenshot — Windows Snipping Tool
+alt + shift + s : start ms-screenclip:
+
+# Exit komorebi
+alt + shift + q : komorebic stop
