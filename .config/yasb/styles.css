@@ -1,0 +1,853 @@
+:root {
+    --bg-base:        #0a0a0a;
+    --bg-raised:      #111111;
+    --bg-muted:       #1a1a1a;
+    --bg-subtle:      #222222;
+    --bg-hover:       #2a2a2a;
+    --bg-active:      #333333;
+
+    --border-dim:     #252525;
+    --border-mid:     #3a3a3a;
+    --border-bright:  #555555;
+    --border-full:    #ffffff;
+
+    --text-full:      #ffffff;
+    --text-high:      #dddddd;
+    --text-mid:       #999999;
+    --text-low:       #555555;
+    --text-ghost:     #333333;
+
+    --accent:         #ffffff;
+    --accent-inv:     #000000;
+
+    --radius:         4px;
+    --font:           "JetBrainsMono NF Regular";
+}
+
+* {
+    font-size: 12px;
+    color: var(--text-full);
+    font-weight: 500;
+    font-family: var(--font);
+    margin: 0;
+    padding: 0;
+}
+
+/* ── BAR ─────────────────────────────────────────────────────────────────── */
+.yasb-bar {
+    padding: 0 6px;
+    margin: 0;
+    background-color: var(--bg-base);
+    border-bottom: 1px solid var(--border-dim);
+    border-radius: 0;
+}
+
+/* ── BASE WIDGET BOX ─────────────────────────────────────────────────────── */
+.widget {
+    background-color: transparent;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    padding: 0 8px;
+    margin: 4px 2px;
+    transition: border-color 120ms ease;
+}
+
+.widget:hover {
+    border-color: var(--border-bright);
+}
+
+.widget .label {
+    padding: 2px 2px 1px 2px;
+    color: var(--text-high);
+    letter-spacing: 0.02em;
+}
+
+.widget .label.alt {
+    padding: 1px 8px;
+    color: var(--text-mid);
+}
+
+/* ── HOME ────────────────────────────────────────────────────────────────── */
+.home-widget {
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    padding: 0 8px;
+    margin: 4px 2px;
+    transition: border-color 120ms ease;
+}
+
+.home-widget:hover {
+    border-color: var(--border-full);
+}
+
+.home-widget .label {
+    font-size: 17px;
+    color: var(--text-full);
+}
+
+.home-menu {
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    padding: 3px 0;
+}
+
+.home-menu .menu-item {
+    background-color: transparent;
+    color: var(--text-high);
+    padding: 6px 16px;
+    font-family: var(--font);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+}
+
+.home-menu .menu-item:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-full);
+}
+
+.home-menu .separator {
+    background-color: var(--border-dim);
+    height: 1px;
+    margin: 2px 0;
+}
+
+/* ── WORKSPACES ──────────────────────────────────────────────────────────── */
+.komorebi-workspaces {
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    margin: 4px 2px;
+    padding: 0 4px;
+}
+
+.komorebi-workspaces .ws-btn {
+    font-size: 17px;
+    background-color: transparent;
+    border: none;
+    padding: 0 6px;
+    margin: 0;
+    color: var(--text-ghost);
+    transition: color 100ms ease;
+    font-family: var(--font);
+    qproperty-text: "";
+}
+
+/* Per-button icons — inactive (grey) */
+.komorebi-workspaces .ws-btn.button-1 { qproperty-text: "󰋜"; }
+.komorebi-workspaces .ws-btn.button-2 { qproperty-text: "󰈹"; }
+.komorebi-workspaces .ws-btn.button-3 { qproperty-text: ""; }
+.komorebi-workspaces .ws-btn.button-4 { qproperty-text: ""; }
+.komorebi-workspaces .ws-btn.button-5 { qproperty-text: ""; }
+.komorebi-workspaces .ws-btn.button-6 { qproperty-text: ""; }
+
+/* Active state — white */
+.komorebi-workspaces .ws-btn.active,
+.komorebi-workspaces .ws-btn.active_populated,
+.komorebi-workspaces .ws-btn.active_empty {
+    color: var(--text-full);
+}
+
+/* Inactive (populated or empty) — same grey */
+.komorebi-workspaces .ws-btn.populated,
+.komorebi-workspaces .ws-btn.empty {
+    color: var(--text-ghost);
+}
+
+.komorebi-workspaces .ws-btn:hover {
+    color: var(--text-mid);
+}
+
+/* ── SYSTRAY ─────────────────────────────────────────────────────────────── */
+.systray {
+    background: transparent;
+    margin: 4px 2px;
+    padding: 0 4px;
+}
+
+.systray .pinned-container {
+    background: transparent;
+}
+
+.systray .unpinned-container {
+    padding: 2px 4px;
+}
+
+.systray .button {
+    border-radius: var(--radius);
+    padding: 2px;
+    transition: background-color 100ms ease;
+}
+
+.systray .button:hover {
+    background-color: var(--bg-hover);
+}
+
+.systray .unpinned-visibility-btn {
+    color: var(--text-mid);
+    border-radius: var(--radius);
+    height: 20px;
+    width: 20px;
+    border: none;
+    background: transparent;
+    transition: color 100ms ease, background-color 100ms ease;
+}
+
+.systray .unpinned-visibility-btn:hover {
+    color: var(--text-full);
+}
+
+.systray .unpinned-visibility-btn:checked {
+    color: var(--text-full);
+}
+
+/* ── MEDIA ───────────────────────────────────────────────────────────────── */
+.media-widget {
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    padding: 0 8px;
+    margin: 4px 2px;
+    transition: border-color 120ms ease;
+}
+
+.media-widget:hover {
+    border-color: var(--border-bright);
+}
+
+.media-widget .label {
+    color: var(--text-high);
+    padding: 0 4px 0 0;
+    letter-spacing: 0.01em;
+}
+
+.media-widget .btn {
+    padding: 0;
+    margin: 0 -6px;
+    padding-left: 4px;
+    color: var(--text-mid);
+    border: none;
+    transition: color 100ms ease;
+}
+
+.media-widget .btn:hover {
+    color: var(--text-full);
+}
+
+.media-menu {
+    min-width: 420px;
+    max-width: 420px;
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+}
+
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+    font-size: 14px;
+    font-weight: 600;
+    margin-left: 10px;
+    color: var(--text-full);
+    font-family: var(--font);
+    letter-spacing: 0.02em;
+}
+
+.media-menu .artist {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.media-menu .source {
+    font-size: 11px;
+    color: var(--accent-inv);
+    font-weight: 600;
+    border-radius: 2px;
+    background-color: var(--text-mid);
+    padding: 2px 4px;
+    letter-spacing: 0.06em;
+}
+
+.media-menu .btn {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 10px 2px 0 2px;
+    min-width: 40px;
+    max-width: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    border-radius: var(--radius);
+    color: var(--text-full);
+    background-color: transparent;
+    border: none;
+    transition: background-color 100ms ease;
+}
+
+.media-menu .btn:hover {
+    background-color: var(--bg-hover);
+}
+
+.media-menu .btn.play {
+    background-color: var(--bg-hover);
+    border: 1px solid var(--border-full);
+    font-size: 20px;
+}
+
+.media-menu .btn.play:hover {
+    background-color: var(--bg-active);
+    border-color: var(--border-bright);
+}
+
+.media-menu .btn.disabled,
+.media-menu .btn.disabled:hover {
+    color: var(--text-ghost);
+    background-color: transparent;
+}
+
+.media-menu .progress-slider::groove {
+    background: var(--border-dim);
+    height: 2px;
+    border-radius: 2px;
+}
+
+.media-menu .progress-slider::sub-page {
+    background: var(--text-full);
+    border-radius: 2px;
+    height: 2px;
+}
+
+.media-menu .progress-slider::handle {
+    background: var(--text-full);
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin: -3px 0;
+}
+
+/* ── CAVA ────────────────────────────────────────────────────────────────── */
+.cava-widget {
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    padding: 0 8px;
+    margin: 4px 2px;
+}
+
+/* ── VOLUME ──────────────────────────────────────────────────────────────── */
+.volume-widget .label,
+.volume-widget .icon {
+    color: var(--text-full);
+}
+
+.volume-widget .label.muted,
+.volume-widget .icon.muted {
+    color: var(--text-low);
+}
+
+.volume-widget .label.no-device,
+.volume-widget .icon.no-device {
+    color: var(--text-ghost);
+}
+
+.audio-menu {
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    min-width: 300px;
+}
+
+.audio-menu .system-volume-container .volume-slider {
+    border: none;
+}
+
+.audio-menu .system-volume-container .volume-slider::groove {
+    background: var(--border-dim);
+    height: 2px;
+    border-radius: 2px;
+}
+
+.audio-menu .system-volume-container .volume-slider::handle {
+    background: var(--text-full);
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    margin: -4px 0;
+}
+
+.audio-menu .system-volume-container .volume-slider::sub-page {
+    background: var(--text-full);
+    border-radius: 2px;
+    height: 2px;
+}
+
+.audio-menu .audio-container .device {
+    background-color: transparent;
+    border: none;
+    padding: 6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 12px;
+    border-radius: var(--radius);
+    color: var(--text-mid);
+    font-family: var(--font);
+    transition: background-color 100ms ease, color 100ms ease;
+}
+
+.audio-menu .audio-container .device.selected {
+    background-color: var(--bg-hover);
+    color: var(--text-full);
+}
+
+.audio-menu .audio-container .device:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-full);
+}
+
+.audio-menu .toggle-apps {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-height: 24px;
+    min-width: 24px;
+    border-radius: var(--radius);
+    color: var(--text-mid);
+    transition: background-color 100ms ease, color 100ms ease;
+}
+
+.audio-menu .toggle-apps.expanded {
+    background-color: var(--bg-hover);
+    color: var(--text-full);
+}
+
+.audio-menu .toggle-apps:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-full);
+}
+
+.audio-menu .apps-container {
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: var(--radius);
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-dim);
+}
+
+.audio-menu .apps-container .app-volume {
+    border-radius: var(--radius);
+    transition: background-color 100ms ease;
+}
+
+.audio-menu .apps-container .app-volume:hover {
+    background-color: var(--bg-hover);
+}
+
+.audio-menu .apps-container .app-volume .app-label {
+    color: var(--text-mid);
+    font-size: 12px;
+    font-family: var(--font);
+}
+
+.audio-menu .apps-container .app-volume .app-icon-container {
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    border-radius: var(--radius);
+    margin-right: 8px;
+}
+
+.audio-menu .apps-container .app-volume .app-slider {
+    border: none;
+}
+
+.audio-menu .apps-container .app-volume .app-slider::groove {
+    background: var(--border-dim);
+    height: 2px;
+    border-radius: 2px;
+}
+
+.audio-menu .apps-container .app-volume .app-slider::sub-page {
+    background: var(--text-mid);
+    border-radius: 2px;
+    height: 2px;
+}
+
+/* ── MICROPHONE ──────────────────────────────────────────────────────────── */
+.microphone-widget .label,
+.microphone-widget .icon {
+    color: var(--text-full);
+    font-size: 14px;
+}
+
+.microphone-widget .label.muted,
+.microphone-widget .icon.muted {
+    color: var(--text-low);
+}
+
+/* ── WIFI ────────────────────────────────────────────────────────────────── */
+.wifi-widget {
+    min-width: 24px;
+    padding: 0 4px 0 0px;
+}
+
+.wifi-widget .label {
+    color: var(--text-full);
+    letter-spacing: 0.02em;
+}
+
+.wifi-widget .label.alt {
+    color: var(--text-mid);
+}
+
+/* ── WIFI MENU ───────────────────────────────────────────────────────────── */
+.wifi-menu {
+    font-family: var(--font);
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    min-width: 320px;
+    max-height: 350px;
+    min-height: 375px;
+}
+
+.wifi-menu .progress-bar {
+    max-height: 2px;
+    color: var(--text-full);
+}
+
+.wifi-menu .header {
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 10px 14px;
+    color: var(--text-full);
+    background-color: #0a0a0a;
+    border-bottom: 1px solid var(--border-dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.wifi-menu .error-message {
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 10px 14px;
+    color: var(--text-full);
+    background-color: #1a0000;
+    border-bottom: 1px solid var(--border-dim);
+}
+
+.wifi-menu .wifi-list {
+    background-color: transparent;
+}
+
+.wifi-menu .wifi-item {
+    min-height: 36px;
+    padding: 4px 12px;
+    margin: 2px 4px;
+    border-radius: var(--radius);
+    color: var(--text-mid);
+}
+
+.wifi-menu .wifi-item:hover {
+    background-color: var(--bg-hover);
+    border-radius: var(--radius);
+}
+
+.wifi-menu .wifi-item[active=true] {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-mid);
+    border-radius: var(--radius);
+    min-height: 80px;
+    color: var(--text-full);
+}
+
+.wifi-menu .wifi-item .icon {
+    font-family: var(--font);
+    font-size: 18px;
+    margin-right: 10px;
+    color: var(--text-mid);
+}
+
+.wifi-menu .wifi-item[active=true] .icon {
+    color: var(--text-full);
+}
+
+.wifi-menu .wifi-item .name {
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--text-mid);
+    letter-spacing: 0.02em;
+}
+
+.wifi-menu .wifi-item[active=true] .name {
+    color: var(--text-full);
+}
+
+.wifi-menu .wifi-item .status {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--text-low);
+    letter-spacing: 0.04em;
+}
+
+.wifi-menu .wifi-item .strength {
+    font-family: var(--font);
+    font-size: 11px;
+    color: var(--text-low);
+}
+
+.wifi-menu .wifi-item .password {
+    font-family: var(--font);
+    background-color: var(--bg-muted);
+    border: 1px solid var(--border-mid);
+    border-radius: var(--radius);
+    color: var(--text-high);
+    font-size: 12px;
+    padding: 2px 6px;
+}
+
+.wifi-menu .wifi-item .controls-container {
+    padding-top: 8px;
+}
+
+.wifi-menu .wifi-item .connect {
+    background-color: var(--bg-active);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius);
+    color: var(--text-full);
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 4px 24px;
+    letter-spacing: 0.04em;
+}
+
+.wifi-menu .wifi-item .connect:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--border-full);
+}
+
+.wifi-menu .wifi-item .connect:pressed {
+    background-color: var(--bg-active);
+}
+
+.wifi-menu .footer {
+    font-family: var(--font);
+    font-size: 11px;
+    padding: 8px 12px;
+    color: var(--text-low);
+    background-color: #0a0a0a;
+    border-top: 1px solid var(--border-dim);
+    letter-spacing: 0.04em;
+}
+
+.wifi-menu .footer .settings-button {
+    font-family: var(--font);
+    background-color: transparent;
+    border: none;
+    padding: 0 4px;
+    min-width: 26px;
+    min-height: 26px;
+    color: var(--text-mid);
+    border-radius: var(--radius);
+    transition: color 100ms ease, background-color 100ms ease;
+}
+
+.wifi-menu .footer .settings-button:hover {
+    color: var(--text-full);
+    background-color: var(--bg-hover);
+}
+
+.wifi-menu .footer .refresh-icon {
+    font-family: var(--font);
+    background-color: transparent;
+    border: none;
+    min-width: 26px;
+    min-height: 26px;
+    color: var(--text-mid);
+    border-radius: var(--radius);
+    transition: color 100ms ease, background-color 100ms ease;
+}
+
+.wifi-menu .footer .refresh-icon:hover {
+    color: var(--text-full);
+    background-color: var(--bg-hover);
+}
+
+/* Right-click context menu */
+.context-menu {
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 3px 0;
+}
+
+.context-menu::item {
+    color: var(--text-high);
+    padding: 6px 16px;
+}
+
+.context-menu::item:selected {
+    background-color: var(--bg-hover);
+    color: var(--text-full);
+}
+
+.context-menu .menu-checkbox .checkbox {
+    color: var(--text-mid);
+}
+
+/* ── CLOCK ───────────────────────────────────────────────────────────────── */
+.clock-widget .label {
+    color: var(--text-full);
+    padding-left: 4px;
+    letter-spacing: 0.03em;
+}
+
+/* ── CALENDAR ────────────────────────────────────────────────────────────── */
+.calendar {
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+}
+
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+    background-color: transparent;
+    color: var(--text-mid);
+    font-family: var(--font);
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.calendar .calendar-table::item:selected {
+    color: var(--text-full);
+    background-color: var(--bg-active);
+    border-radius: var(--radius);
+}
+
+.calendar .calendar-table::item:hover {
+    color: var(--text-high);
+    background-color: var(--bg-hover);
+    border-radius: var(--radius);
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label,
+.calendar .week-label,
+.calendar .holiday-label {
+    font-family: var(--font);
+    font-size: 16px;
+    color: var(--text-full);
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+    letter-spacing: 0.04em;
+}
+
+.calendar .week-label,
+.calendar .holiday-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-low);
+    letter-spacing: 0.06em;
+}
+
+.calendar .month-label {
+    font-weight: 400;
+    color: var(--text-mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.calendar .date-label {
+    font-size: 88px;
+    font-weight: 900;
+    color: var(--text-full);
+    margin-top: -20px;
+    letter-spacing: -0.04em;
+}
+
+/* ── NOTIFICATIONS ───────────────────────────────────────────────────────── */
+.notifications-widget .label {
+    color: var(--text-full);
+}
+
+.notifications-widget .icon {
+    font-size: 14px;
+    color: var(--text-full);
+}
+
+.notification-widget {
+    background-color: #000000;
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+}
+
+/* ── WALLPAPERS WIDGET ───────────────────────────────────────────────────── */
+.wallpapers-widget {
+    border: 1px solid var(--border-full);
+    border-radius: var(--radius);
+    padding: 0 4px 0 2px;
+    min-width: 18px;
+    margin: 4px 2px;
+    transition: border-color 120ms ease;
+}
+
+.wallpapers-widget:hover {
+    border-color: var(--border-bright);
+}
+
+.wallpapers-widget .label {
+    color: var(--text-mid);
+    font-size: 14px;
+    transition: color 100ms ease;
+}
+
+.wallpapers-widget:hover .label {
+    color: var(--text-full);
+}
+
+.wallpapers-gallery-window {
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 0;
+    margin: 2px;
+}
+
+.wallpapers-gallery-buttons {
+    background-color: transparent;
+    color: var(--text-high);
+    border: 1px solid var(--border-mid);
+    font-size: 12px;
+    font-family: var(--font);
+    padding: 8px 0;
+    border-radius: var(--radius);
+    margin: 0 8px 8px 8px;
+    width: 200px;
+    letter-spacing: 0.04em;
+    transition: background-color 100ms ease, border-color 100ms ease, color 100ms ease;
+}
+
+.wallpapers-gallery-buttons:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--border-bright);
+    color: var(--text-full);
+}
+
+.wallpapers-gallery-image {
+    border: 4px solid transparent;
+    border-radius: 16px;
+}
+
+.wallpapers-gallery-image:hover {
+    border: 4px solid var(--border-mid);
+}
+
+.wallpapers-gallery-image.focused {
+    border: 4px solid var(--border-full);
+}
+
