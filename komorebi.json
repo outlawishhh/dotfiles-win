@@ -1,0 +1,66 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 3,
+  "default_container_padding": 4,
+  "animation": {
+    "enabled": true,
+    "duration": 250,
+    "fps": 60,
+    "style": "EaseOutSine"
+  },
+  "border": true,
+  "border_width": 8,
+  "border_offset": -1,
+  "border_colours": {
+    "single": { "r": 255, "g": 255, "b": 255 },
+    "stack": { "r": 255, "g": 255, "b": 255 },
+    "monocle": { "r": 255, "g": 255, "b": 255 },
+    "floating": { "r": 255, "g": 255, "b": 255 },
+    "unfocused": { "r": 89, "g": 89, "b": 89 }
+  },
+  "monitors": [
+    {
+      "workspaces": [
+        { "name": "1", "layout": "BSP" },
+        { "name": "2", "layout": "BSP" },
+        { "name": "3", "layout": "BSP" },
+        { "name": "4", "layout": "BSP" },
+        { "name": "5", "layout": "BSP" },
+        { "name": "6", "layout": "BSP" }
+      ]
+    }
+  ],
+  "workspace_rules": [
+    {
+      "matching_strategy": "Legacy",
+      "kind": "Exe",
+      "id": "firefox.exe",
+      "monitor_index": 0,
+      "workspace_index": 1
+    },
+    {
+      "matching_strategy": "Legacy",
+      "kind": "Exe",
+      "id": "vesktop.exe",
+      "monitor_index": 0,
+      "workspace_index": 2
+    },
+    {
+      "matching_strategy": "Legacy",
+      "kind": "Exe",
+      "id": "Spotify.exe",
+      "monitor_index": 0,
+      "workspace_index": 3
+    },
+    {
+      "matching_strategy": "Legacy",
+      "kind": "Exe",
+      "id": "atom.exe",
+      "monitor_index": 0,
+      "workspace_index": 4
+    }
+  ]
+}
